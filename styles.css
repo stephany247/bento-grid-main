@@ -10,27 +10,27 @@
   font-family: "DM Sans", sans-serif;
 }
 
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 1rem;
   background-color: whitesmoke;
   color: var(--black);
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem; */
-  /* height: 100vh; */
+  gap: 2rem;
 }
 
 article {
   padding: 1rem;
   border-radius: 10px;
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-  /* gap: 1rem; */
+  width: 100%;
 }
 
 h1 {
@@ -52,7 +52,6 @@ p {
   font-size: 1.125rem;
   font-weight: 500;
   margin: 0;
-  /* max-width: 24ch; */
 }
 
 img {
@@ -65,11 +64,11 @@ img {
   color: var(--black);
   text-align: center;
   padding: 2rem;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 1rem; */
   grid-area: one;
 }
 
@@ -97,7 +96,6 @@ img {
 .two {
   background-color: var(--white);
   color: var(--black);
-  /* text-align: center; */
   grid-area: two;
 }
 
@@ -116,7 +114,6 @@ img {
   color: var(--black);
   max-width: 15ch;
   padding-bottom: 1rem;
-  /* font-size: 3rem; */
 }
 
 .three img {
@@ -171,11 +168,6 @@ img {
 .six {
   background-color: var(--white);
   grid-area: six;
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem; */
-  /* align-items: center; */
 }
 
 .six h1 {
@@ -218,10 +210,62 @@ img {
   width: 70%;
 }
 
+@media screen and (min-width: 40rem) {
+  body {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas:
+      "one one one one"
+      "two two three three"
+      "four four four four"
+      "five five five five"
+      "six six six six"
+      "seven seven eight eight";
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .one {
+    width: 100%;
+  }
+
+  .four img {
+    width: 60%;
+  }
+
+
+  .four p {
+    max-width: 65%;
+  }
+
+  .five {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .five h1 {
+    font-size: 2.5rem;
+    line-height: 0.9;
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  .five img {
+    width: 50%;
+  }
+
+  .six {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 @media screen and (min-width: 64rem) {
   body {
-    /* margin: 0; */
-    /* padding: 0; */
     display: grid;
     gap: 1.5rem;
     grid-template-areas:
@@ -229,21 +273,25 @@ img {
       "seven two three four"
       "eight two three four"
       "eight six five five";
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* Adjust column sizes */
-    grid-template-rows: 1.4fr 0.4fr 0.6fr 1fr; /* Adjust row sizes */
-    /* margin: 0; */
-    padding: 5rem;
-    /* height: 100vh; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.2fr 0.4fr 0.6fr 1fr; 
+    justify-content: center;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 3rem;
+    max-width: 70rem;
   }
 
   h1 {
     letter-spacing: -0.12rem;
-    /* font-size: 5rem; */
-    /* max-width: 80%; */
   }
 
   h2 {
     font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
   }
 
   .one h1 {
@@ -257,11 +305,9 @@ img {
   .two {
     background-color: var(--white);
     color: var(--black);
-    /* text-align: center; */
     grid-area: two;
     position: relative;
     overflow: hidden;
-    /* z-index: -1; */
   }
 
   .two img {
@@ -273,7 +319,7 @@ img {
   }
 
   .two h2 {
-    max-width: 70%;
+    max-width: 80%;
     margin-top: 3rem;
   }
 
@@ -287,52 +333,74 @@ img {
 
   .three img {
     width: 100%;
-    margin-bottom: -4.9rem;
+    height: auto;
+  }
+
+  .four {
+    text-align: left;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .four h2 {
+    font-size: 1.9rem;
+  }
+
+  .four p {
+    padding: 0;
   }
   .four img {
-    width: 100%;
-    /* margin-right: -4.9rem; */
+    width: 187%;
+    height: 50%;
+    margin-right: -9.9rem;
   }
 
   .five {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
   }
 
   .five img {
-    width: 40%;
+    width: 50%;
     height: auto;
   }
 
   .five h1 {
     color: var(--white);
-    font-size: 1.8rem;
-    line-height: 0.9;
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: 0;
     padding: 0;
-    padding-bottom: 0;
     text-align: left;
+    text-wrap: wrap;
+    max-width: 10ch;
   }
 
-  .seven img, .eight img {
+  .seven img,
+  .eight img {
     width: 95%;
   }
 
-  /* .eight h1, */
-.seven h1 {
-  color: var(--black);
-  margin-bottom: 1rem;
-  font-size: 2.4rem;
-}
+  .seven h1,
+  .eight h1 {
+    color: var(--black);
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+    max-width: 80%;
+  }
+
+  .eight img {
+    margin: auto;
+  }
 
   article {
-    /* height: 100%; */
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     text-align: left;
+    padding: 1.5rem;
   }
 }
